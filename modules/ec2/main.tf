@@ -1,6 +1,7 @@
 resource "aws_security_group" "sg" {
   name        = "${var.component_name}-${var.env}-sg"
-  description = "inbound allow for ${var.component_name}"
+  description = "Inbound allow for ${var.component_name}"
+
   
 
   ingress {
@@ -27,23 +28,28 @@ resource "aws_security_group" "sg" {
 }
 
 resource "aws_instance" "instance" {
-  ami           = data.aws_ami.ami.id
-  instance_type = var.instance_type
+  ami                    = data.aws_ami.ami.id
+  instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.sg.id]
   tags = {
-    Name = " ${var.component_name}-${var.env}"
+    Name = "${var.component_name}-${var.env}"
   }
-  provisioner "remote-exec" {
+}
 
-  connection {
-    type     = "ssh"
-    user     = "ec2-user"
-    password = "DevOps321"
-    host     = self.private_ip
-  }
+resource "null_resource"  "ansible-pull" {
+
+  provisioner "remote-exec" {
+    
+    connection {
+      type     = "ssh"
+      user     = "ec2-user"
+      password = "DevOps321"
+      host     = aws_instance.instance.private_ip
+    }
+
     inline = [
-     "sudo labauto ansible",
-     "ansible-pull -i localhost, -U https://github.com/its-amanihub/roboshop-ansible.git roboshop.yml -e env=${var.env} -e app_name=${var.component_name}"
+      "sudo labauto ansible",
+      "ansible-pull -i localhost, -U https://github.com/its-amanihub/roboshop-ansible.git roboshop.yml -e env=${var.env} -e component=${var.component_name} -e vault_token=${var.vault_token}"
     ]
   }
 }
