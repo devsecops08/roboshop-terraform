@@ -39,7 +39,7 @@ provisioner  "local-exec" {
   command = <<EDL
 
   cd /home/ec2-user/roboshop-ansible
-  "ansile-playbook -i ${self.private_ip}, -e ansible_user=ec2_user -e ansible_password=DevOPS321 -e app_name=${var.component_name} -e env=${var.env}main.yml"
+  "ansile-playbook -i ${self.private_ip}, -e ansible_user=ec2_user -e ansible_password=DevOPS321 -e app_name=${var.component_name} -e env=${var.env}  roboshop.yml"
   EDL
 
   }
