@@ -1,4 +1,7 @@
 env="dev"
+domain_name="adevsecops08.online"
+zone_id="Z04036722QT9R780VLSOQ"
+
 db_instances = {
   mongodb = {
     app_port      = 27017
