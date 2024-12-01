@@ -22,6 +22,7 @@ module "app_instances"{
 }
 
 module "web_instances"{
+    
     depends_on = [ module.app_instances ]
     for_each = var.web_instances
     source = "./modules/ec2"
