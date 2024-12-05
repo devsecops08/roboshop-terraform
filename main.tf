@@ -3,7 +3,7 @@ module "db_instances"{
     source = "./modules/ec2"
     env = var.env
     app_port = each.value["app_port"]
-    component_name = each.value
+    component_name = each.key
     instance_type = each.value["instance_type"]
     domain_name =  var.domain_name
     zone_id = var.zone_id
@@ -16,7 +16,7 @@ module "app_instances"{
     source = "./modules/ec2"
     env = var.env
     app_port = each.value["app_port"]
-    component_name = each.value
+    component_name = each.key
     instance_type = each.value["instance_type"]
     domain_name =  var.domain_name
     zone_id = var.zone_id
@@ -30,7 +30,7 @@ module "web_instances"{
     source = "./modules/ec2"
     env = var.env
     app_port = each.value["app_port"]
-    component_name = each.value
+    component_name = each.key
     instance_type = each.value["instance_type"]
     domain_name =  var.domain_name
     zone_id = var.zone_id
