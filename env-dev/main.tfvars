@@ -1,6 +1,6 @@
 env="dev"
 domain_name= "adevsecops08.online"
-zone_id="Z04036722QT9R780VLSOQ"
+zone_id="Z0285213QK7SB76TI5I9"
 
 db_instances = {
   mongodb = {
