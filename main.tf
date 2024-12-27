@@ -7,7 +7,8 @@ module "db_instances"{
     instance_type = each.value["instance_type"]
     domain_name =  var.domain_name
     zone_id = var.zone_id
-
+    vault_token = var.vault_token
+    volume_size    = each.value["volume_size"]
 }
 
 module "app_instances"{
@@ -20,7 +21,8 @@ module "app_instances"{
     instance_type = each.value["instance_type"]
     domain_name =  var.domain_name
     zone_id = var.zone_id
-   
+    vault_token = var.vault_token
+    volume_size    = each.value["volume_size"]
 }
 
 module "web_instances"{
@@ -34,6 +36,7 @@ module "web_instances"{
     instance_type = each.value["instance_type"]
     domain_name =  var.domain_name
     zone_id = var.zone_id
-
+    vault_token = var.vault_token
+    volume_size    = each.value["volume_size"]
 
 }
