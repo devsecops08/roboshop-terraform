@@ -49,13 +49,13 @@ resource "null_resource" "ansible-pull" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
-      user     = data.vault_generic_secret.ssh.data["username"]
-      password = data.vault_generic_secret.ssh.data["password"]
+      user     = ec2-user
+      password = DevOps321
       host     = aws_instance.instance.private_ip
     }
 
     inline = [
-      "ansible-pull -i localhost, -U https://github.com/its-amanihub/roboshop-ansible.git  roboshop.yml -e env=${var.env} -e component=${var.component_name} -e vault_token=${var.vault_token}"
+      "ansible-pull -i localhost, -U https://github.com/its-amanihub/roboshop-ansible.git  roboshop.yml -e env=${var.env} -e component=${var.component_name}"
     ]
   }
 }
