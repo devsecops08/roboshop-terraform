@@ -51,6 +51,7 @@ resource "null_resource" "ansible-pull" {
   }
 
   provisioner "remote-exec" {
+    
     connection {
       type     = "ssh"
       user     = data.vault_generic_secret.ssh.data["username"]
