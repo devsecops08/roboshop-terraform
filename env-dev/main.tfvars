@@ -84,6 +84,16 @@ eks = {
       access_scope_type       = "cluster"
       access_scope_namespaces = []
     }
+    # UI Access
+    ui-access = {
+      principal_arn           = "arn:aws:iam::897722697588:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_DevOpsEngineers_70a51c5bd23375d3"
+      kubernetes_groups       = []
+      policy_arn              = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+      access_scope_type       = "cluster"
+      access_scope_namespaces = []
+    }
+  }
+
     node_groups = {
     g1 = {
       desired_size   = 2
