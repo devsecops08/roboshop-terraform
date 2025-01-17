@@ -96,7 +96,7 @@ eks = {
   }
 
     node_groups = {
-    g1 = {
+    g2 = {
       desired_size   = 2
       max_size       = 10
       min_size       = 2
