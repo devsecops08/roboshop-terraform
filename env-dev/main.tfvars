@@ -71,5 +71,5 @@ web_instances = {
 }
 
 eks = {
-  subnet-ids = ["subnet-085a020c96056ac5d","subnet-029c2b39cfd76f966"]
+  subnet_ids = ["subnet-085a020c96056ac5d","subnet-029c2b39cfd76f966"]
 }
