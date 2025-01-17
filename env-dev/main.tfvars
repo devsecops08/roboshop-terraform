@@ -77,4 +77,14 @@ eks = {
   coredns= {}
   kube-proxy= {}
   }
+    node_groups = {
+    g1 = {
+      desired_size   = 2
+      max_size       = 10
+      min_size       = 2
+      capacity_type  = "SPOT"
+      instance_types = ["t3.large", "t3.2xlarge"]
+    }
+  }
 }
+
