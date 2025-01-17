@@ -46,8 +46,7 @@ module "eks" {
 
   env            = var.env
   subnet_ids     = var.eks["subnet_ids"]
+  addons         = var.eks["addons"]
 }
 
-output "aut" {
-   value= module.eks
-}
+
