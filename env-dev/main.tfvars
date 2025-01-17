@@ -75,6 +75,7 @@ eks = {
   addons = {
   vpc-cni= {}
   kube-proxy= {}
+  eks-pod-identity-agent = {}
   }
     access_entries = {
     workstation = {
